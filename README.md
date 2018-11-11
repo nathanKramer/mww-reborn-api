@@ -2,6 +2,12 @@
 
 Base URL: https://mww-reborn-api.herokuapp.com/v1
 
+## GraphQL
+
+* `/graphql?query=GRAPHQL_QUERY`
+
+When running locally, the `/graphql` endpoint will have a UI you can explore.
+
 ## Resources
 
 * [servers](https://mww-reborn-api.herokuapp.com/v1/servers)
