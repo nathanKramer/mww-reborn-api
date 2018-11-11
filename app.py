@@ -1,8 +1,8 @@
 import os
-from flask import Flask
+from flask import Flask, json
 
 from game_servers import query_servers
-import json, logging
+import logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -11,7 +11,9 @@ app = Flask(__name__)
 
 @app.route('/v1/servers')
 def server_list():
-  return json.dumps(query_servers(r'\appid\202090'))
+  response = json.jsonify(query_servers(r'\appid\202090'))
+  response.headers.add('Access-Control-Allow-Origin', '*')
+  return response
 
 if __name__ == '__main__':
   # Bind to PORT if defined, otherwise default to 5000.
