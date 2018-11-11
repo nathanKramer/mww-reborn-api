@@ -1,5 +1,9 @@
 from steam import game_servers as gs
 
+def get_players_for_ip(ipaddress):
+    addr = ipaddress.split(':')
+    addr = tuple([addr[0], int(addr[1])])
+    return gs.a2s_players(addr)
 
 def query_servers(query, max_servers=10):
     servers = []
